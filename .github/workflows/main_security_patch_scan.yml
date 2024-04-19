@@ -44,7 +44,7 @@ jobs:
           output: 'trivy-results.json'
           ignore-unfixed: true
           vuln-type: 'os'
-          severity: 'LOW,MEDIUM,HIGH,CRITICAL'
+          severity: 'LOW'
         env:
           TRIVY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
           TRIVY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
@@ -82,7 +82,7 @@ jobs:
           ./copa patch -i ${{ matrix.images }} -r trivy-results.json -t $patched_tag
           echo "copa_patch=true" >> $GITHUB_OUTPUT
         env:
-          COPA_VERSION: 0.6.0
+          COPA_VERSION: 0.6.2
 
       - name: Push patched image
         if: steps.vuln_count.outputs.vuln_count != '0'
