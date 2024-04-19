@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        images: ['docker pull mewspoc.azurecr.io/vulnerableimage:0.0.1']
+        images: ['mewspoc.azurecr.io/vulnerableimage:0.0.1']
 
     steps:
       - name: 'Docker Login'
