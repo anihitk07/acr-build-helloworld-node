@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        images: ['mewspoc.azurecr.io/net-monitor@sha256:d9009a7925bfd4062f464274ba83417ff3902a2edcadd3b51d3a4b1f641492a9']
+        images: ['docker pull mewspoc.azurecr.io/net-monitor:v1']
 
     steps:
       - name: 'Docker Login'
