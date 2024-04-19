@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        images: ['docker pull mewspoc.azurecr.io/net-monitor:v1']
+        images: ['docker pull mewspoc.azurecr.io/vulnerableimage:0.0.1']
 
     steps:
       - name: 'Docker Login'
@@ -44,7 +44,7 @@ jobs:
           output: 'trivy-results.json'
           ignore-unfixed: true
           vuln-type: 'os'
-          severity: 'LOW'
+          severity: 'CRITICAL,HIGH'
         env:
           TRIVY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
           TRIVY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
